@@ -99,7 +99,7 @@ RUN export JQ_VERSION=1.5 && \
     wget -q -O - https://releases.hashicorp.com/vault-ssh-helper/${VAULT_SSH_HELPER_VERSION}/vault-ssh-helper_${VAULT_SSH_HELPER_VERSION}_linux_amd64.zip | python -c "import zipfile,sys,StringIO;zipfile.ZipFile(StringIO.StringIO(sys.stdin.read())).extractall('.')" && \
     chmod +x consul* envconsul vault* && \
     mkdir -p /etc/consul.d && \
-    clone git@github.com:duo-labs/cloudmapper.git && \
+    git clone https://github.com/itc3-devops/cloudmapper.git && \
     cd cloudmapper && virtualenv venv && source venv/bin/activate && pip install -r requirements.txt && \
     yum -y upgrade && \
     package-cleanup --oldkernels --count=1 -y && \
